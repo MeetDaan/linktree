@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style type="text/tailwindcss">
+      @theme {
+        --color-brand-bg: #000000;       /* Fondo negro puro */
+        --color-brand-accent: #E6A355;   /* Nuevo color principal de marca */
+        --color-brand-card: rgba(18, 18, 18, 0.85); /* Tarjetas oscuras elegantes */
+        --color-brand-hover: rgba(35, 30, 22, 0.95); /* Hover cálido en tarjetas */
+        --color-brand-border: rgba(230, 163, 85, 0.25); /* Bordes con tinte dorado */
+      }
+
+      /* Animación de subida y degradado de las cenizas */
+      @keyframes ember-rise {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) scale(0.2);
+          opacity: 0;
+        }
+      }
+
+      .ember {
+        position: absolute;
+        bottom: -10px;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: ember-rise linear infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-gray-100 min-h-screen flex flex-col justify-between p-6 font-sans relative overflow-x-hidden">
+
+    <!-- CAPA 1: Imagen de Fondo Difuminada -->
+    <div 
+      class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat filter blur-xs scale-100 -z-20 opacity-80"
+      style="background-image: url('https://instagram.faqp4-1.fna.fbcdn.net/v/t51.82787-15/747191069_18055024172765082_6725635423762935047_n.jpg?stp=dst-jpg_e35_p1080x1080_sh2.08_tt6&_nc_cat=100&ig_cache_key=Mzk0MDQzOTYzNjQxMzA0MzEyMzE4MDU1MDI0MTY2NzY1MDgy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjIzMDUuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=EddyZb4JFHgQ7kNvwFtZKwh&_nc_oc=AdrGFL2RwAWUwTc2K7TtS2rPhBPyGWk9aqHsFS2WxnExfbQmkMnr8CmuIMRy4Uy5sww&_nc_ad=z-m&_nc_cid=1144&_nc_zt=23&_nc_ht=instagram.faqp4-1.fna&_nc_gid=xf3ifyuP5__6ge14Uc7NQQ&_nc_ss=7a22e&oh=00_AQAFeW-wb-c3XyAQIdE7k-syWitaMJ39bzdyK-J8ykCfmw&oe=6A5F733E');">
+    </div>
+
+    <!-- CAPA 2: Capa Oscura de Contraste para garantizar legibilidad -->
+    <div class="absolute inset-0 bg-black/75 -z-10"></div>
+
+    <!-- CAPA 3: Contenedor de Cenizas Flotantes -->
+    <div id="embers-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Contenedor Principal (Perfecto para móviles y centrado en escritorio) -->
+    <main class="max-w-md w-full mx-auto flex flex-col items-center pt-12 pb-16 relative z-10">
+  
+      <!-- Foto de Perfil con Anillo de Brillo -->
+      <div class="relative group">
+        <div
+          class="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-amber-700 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500">
+        </div>
+        <img class="relative rounded-full w-24 h-24 object-cover border-4 border-black"
+          src="https://scontent.cdninstagram.com/v/t51.2885-19/421947149_774740254695216_7922752463357128932_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=103&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy41MDAuQzMifQ%3D%3D&_nc_ohc=OuuA234CVSwQ7kNvwH8eX6a&_nc_oc=AdqFRNCHRb1teqqlnrrXd9PAPYXWeJVhcYn_k7YLZB-TUUOBe0zy8BxNhr-AzJDmt5o&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b6a8&oh=00_AQBrwDqOcnZDmfwlidODvlW6JoFg-FIPzpzE8hWiHiv_Ew&oe=6A5F7454"
+          alt="Foto de perfil" />
+      </div>
+  
+      <!-- Nombre e Info del Perfil -->
+      <h1 class="text-2xl font-bold mt-5 tracking-tight drop-shadow-md text-white">MeetDaan Burger House</h1>
+      <p class="text-brand-accent text-sm font-semibold mt-1 drop-shadow-sm flex items-center gap-1.5">
+        <i class="fa-solid fa-fire text-xs"></i> @meetdaanburgers
+      </p>
+      <p class="text-gray-300 text-sm mt-3 text-center px-4 max-w-sm leading-relaxed drop-shadow-md">
+         Hamburguesas artesanales estilo americano, alitas ahumadas, salchis y más. 🍔🔥
+      </p>
+  
+      <!-- Bloque de Enlaces -->
+      <div class="w-full space-y-4 mt-8">
+  
+        <!-- Enlace Destacado -->
+        <a href="#" target="_blank" rel="noopener noreferrer" class="relative block group">
+          <div
+            class="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-amber-600 rounded-xl blur opacity-50 group-hover:opacity-100 transition duration-300">
+          </div>
+          <div
+            class="relative flex items-center justify-between px-6 py-4 bg-brand-card backdrop-blur-md hover:bg-brand-hover border border-brand-accent/50 rounded-xl transition-all duration-300 transform group-hover:-translate-y-1">
+            <span class="font-bold text-brand-accent flex items-center gap-3">
+              <i class="fa-solid fa-burger text-lg"></i> Menú
+            </span>
+            <span
+              class="text-[10px] bg-brand-accent/20 text-brand-accent border border-brand-accent/30 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+              Nuevo
+            </span>
+          </div>
+        </a>
+  
+        <!-- Enlace Estándar 1 -->
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 w-full px-6 py-4 bg-brand-card backdrop-blur-md hover:bg-brand-hover border border-brand-border hover:border-brand-accent rounded-xl transition-all duration-300 transform hover:-translate-y-1 text-center font-medium hover:text-brand-accent">
+          <i class="fa-solid fa-glass-water text-brand-accent"></i> Opción 2
+        </a>
+  
+        <!-- Enlace Estándar 2 -->
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 w-full px-6 py-4 bg-brand-card backdrop-blur-md hover:bg-brand-hover border border-brand-border hover:border-brand-accent rounded-xl transition-all duration-300 transform hover:-translate-y-1 text-center font-medium hover:text-brand-accent">
+          <i class="fa-solid fa-location-dot text-brand-accent"></i> Opción 3
+        </a>
+  
+        <!-- Enlace Estándar 3 -->
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 w-full px-6 py-4 bg-brand-card backdrop-blur-md hover:bg-brand-hover border border-brand-border hover:border-brand-accent rounded-xl transition-all duration-300 transform hover:-translate-y-1 text-center font-medium hover:text-brand-accent">
+          <i class="fa-solid fa-mobile-screen-button text-brand-accent"></i> Opción 4
+        </a>
+  
+      </div>
+  
+      <!-- Iconos de Redes Sociales -->
+      <div class="flex space-x-6 mt-10 text-gray-300 drop-shadow-sm text-2xl">
+        <a href="https://www.facebook.com/110404261641816" class="hover:text-brand-accent transition-colors duration-200" title="Facebook">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/meetdaanburgers/" class="hover:text-brand-accent transition-colors duration-200" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/51963877851" class="hover:text-brand-accent transition-colors duration-200" title="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://www.tiktok.com/@meetdaan_burgerhouse" class="hover:text-brand-accent transition-colors duration-200" title="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+  
+    </main>
+  
+    <!-- Footer -->
+    <footer class="text-center text-xs text-gray-500 pb-4 relative z-10">
+      MeetDaan Burger House © 2026
+    </footer>
+
+    <!-- Script de Cenizas -->
+    <script>
+      const container = document.getElementById('embers-container');
+      const emberCount = 40;
+
+      // Colores ajustados a la paleta dorada/fuego de la marca (#E6A355)
+      const colors = [
+        '#E6A355', 
+        '#d9822b', 
+        '#ffb862', 
+        '#ff4500', 
+        '#737373'  // Tono ceniza
+      ];
+
+      for (let i = 0; i < emberCount; i++) {
+        const ember = document.createElement('div');
+        
+        const size = Math.random() * 3 + 2; 
+        const left = Math.random() * 100;
+        const duration = Math.random() * 5 + 4;
+        const delay = Math.random() * 6;
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+        ember.className = 'ember';
+        ember.style.width = `${size}px`;
+        ember.style.height = `${size}px`;
+        ember.style.left = `${left}%`;
+        ember.style.backgroundColor = randomColor;
+        ember.style.animationDuration = `${duration}s`;
+        ember.style.animationDelay = `${delay}s`;
+        
+        // Brillo adaptado al color individual
+        ember.style.boxShadow = `0 0 6px ${randomColor}`;
+
+        container.appendChild(ember);
+      }
+    </script>
+  </body>
+</html>
