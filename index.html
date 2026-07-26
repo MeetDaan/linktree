@@ -12,10 +12,10 @@
     <style type="text/tailwindcss">
       @theme {
         --color-brand-bg: #000000;       /* Fondo negro puro */
-        --color-brand-accent: #E6A355;   /* Nuevo color principal de marca */
+        --color-brand-accent: #E35336;   /* Nuevo color principal de marca */
         --color-brand-card: rgba(18, 18, 18, 0.85); /* Tarjetas oscuras elegantes */
         --color-brand-hover: rgba(35, 30, 22, 0.95); /* Hover cálido en tarjetas */
-        --color-brand-border: rgba(230, 163, 85, 0.25); /* Bordes con tinte dorado */
+        --color-brand-border: rgba(227, 83, 54, 0.25); /* Bordes con tinte de marca */
       }
 
       /* Animación de subida y degradado de las cenizas */
@@ -69,7 +69,7 @@
       <!-- Foto de Perfil con Anillo de Brillo -->
       <div class="relative group">
         <div
-          class="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-amber-700 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500">
+          class="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-red-700 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500">
         </div>
         <img class="relative rounded-full w-24 h-24 object-cover border-4 border-black"
           src="logo.png"
@@ -136,11 +136,11 @@
       const container = document.getElementById('embers-container');
       const emberCount = 40;
 
-      // Colores ajustados a la paleta dorada/fuego de la marca (#E6A355)
+      // Colores ajustados a la nueva paleta de fuego (#E35336)
       const colors = [
-        '#E6A355', 
-        '#d9822b', 
-        '#ffb862', 
+        '#E35336', 
+        '#c43c21', 
+        '#f07056', 
         '#ff4500', 
         '#737373'  // Tono ceniza
       ];
